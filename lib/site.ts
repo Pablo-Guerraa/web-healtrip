@@ -1,0 +1,63 @@
+export const site = {
+  name: "Healtrip",
+  origin: "https://myhealtrip.co",
+  city: "Medellín, Colombia",
+  email: "healtrip2go@gmail.com",
+  phone: "+57 300 358 7924",
+  phoneNumber: "573003587924",
+};
+
+export function whatsAppHref(message: string) {
+  return `https://wa.me/${site.phoneNumber}?text=${encodeURIComponent(message)}`;
+}
+
+export const siteCopy = {
+  es: {
+    path: "/",
+    title: "Healtrip · Turismo médico en Medellín, Colombia",
+    description: "Coordinación de turismo médico en Medellín para pacientes internacionales.",
+    socialLocale: "es_CO",
+    language: "Español",
+    languageLabel: "Idioma",
+    navLabel: "Navegación principal",
+    skipLink: "Ir al contenido",
+    openMenu: "Abrir menú",
+    closeMenu: "Cerrar menú",
+    home: "Inicio",
+    services: "Servicios",
+    checkups: "Chequeos",
+    about: "Nosotros",
+    contact: "Contacto",
+    team: "Acceso del equipo",
+    whatsAppAction: "Hablar con Healtrip",
+    whatsAppPrompt: "¿Hablamos?",
+    whatsAppMessage: "Hola, quisiera coordinar mi viaje médico con Healtrip.",
+    wordpressHome: "/",
+    wordpressServices: "/servicios/",
+  },
+  en: {
+    path: "/en",
+    title: "Healtrip · Medical travel to Medellín, Colombia",
+    description: "Medical travel coordination in Medellín for international patients.",
+    socialLocale: "en_US",
+    language: "English",
+    languageLabel: "Language",
+    navLabel: "Main navigation",
+    skipLink: "Skip to content",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    home: "Home",
+    services: "Services",
+    checkups: "Checkups",
+    about: "About us",
+    contact: "Contact",
+    team: "Team access",
+    whatsAppAction: "Talk to Healtrip",
+    whatsAppPrompt: "Let's talk",
+    whatsAppMessage: "Hi, I'd like help coordinating my medical trip with Healtrip.",
+    wordpressHome: "/en/",
+    wordpressServices: "/en/services/",
+  },
+} as const;
+
+export type SiteLocale = keyof typeof siteCopy;

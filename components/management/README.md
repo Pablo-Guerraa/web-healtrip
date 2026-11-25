@@ -40,7 +40,7 @@ Compón la pantalla con:
 - `DataTable<T>`: columnas tipadas, orden accesible con `aria-sort`, acciones por fila y `mobileRender` opcional para tarjetas en móvil con los mismos botones de ordenación sobre ellas.
 - `ListPagination`: rango de resultados, tamaño y navegación de páginas. Usa los metadatos devueltos por la API.
 
-Consulta `app/panel/users/page.tsx` para la composición completa de una tabla y `app/panel/roles/page.tsx` para usar la misma estructura con tarjetas.
+Consulta `app/(internal)/panel/users/page.tsx` para la composición completa de una tabla y `app/(internal)/panel/roles/page.tsx` para usar la misma estructura con tarjetas.
 
 ## Formularios y acciones
 
