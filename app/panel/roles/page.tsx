@@ -87,7 +87,7 @@ function RolesPanel() {
       setMessage(
         editing
           ? "Rol actualizado"
-          : "Rol creado. Ya puedes asignarlo desde Usuarios.",
+          : "Rol creado. Ya puedes asignarlo desde Equipo.",
       );
       if (editing?.id === auth.user?.role) await auth.reload();
     }

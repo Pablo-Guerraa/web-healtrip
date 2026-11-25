@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "@/components/auth/auth-provider";
+import { appName } from "@/lib/brand";
 import "./globals.css";
 export const metadata: Metadata = {
   title: {
-    default: process.env.NEXT_PUBLIC_APP_NAME || "Business Core",
-    template: `%s · ${process.env.NEXT_PUBLIC_APP_NAME || "Business Core"}`,
+    default: appName,
+    template: `%s · ${appName}`,
   },
-  description: "Tu espacio de trabajo",
+  description: "Panel de coordinación de turismo médico en Medellín.",
 };
 export default function RootLayout({
   children,

@@ -45,6 +45,12 @@ export interface CompanySettings {
   timeZone: string;
   logoUrl: string | null;
 }
+export interface CoordinatedService {
+  id: string;
+  name: string;
+  modality: "in_person" | "virtual";
+  description: string;
+}
 export interface AuditEvent {
   id: string;
   action: string;
