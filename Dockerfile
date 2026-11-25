@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 ARG API_URL=http://api:4000
-ARG NEXT_PUBLIC_APP_NAME="Business Core"
+ARG NEXT_PUBLIC_APP_NAME=Healtrip
 ENV API_URL=$API_URL
 ENV NEXT_PUBLIC_APP_NAME=$NEXT_PUBLIC_APP_NAME
 RUN npm run build

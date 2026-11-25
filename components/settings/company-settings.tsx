@@ -44,7 +44,7 @@ export function CompanySettings({
         <Card className="max-w-2xl shadow-none">
           <CardHeader>
             <CardTitle>
-              <h2>Datos de la empresa</h2>
+              <h2>Datos de la operación</h2>
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
@@ -93,7 +93,7 @@ function CompanyForm({
     <Card className="max-w-2xl shadow-none">
       <CardHeader>
         <CardTitle>
-          <h2>Datos de la empresa</h2>
+          <h2>Datos de la operación</h2>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -107,7 +107,7 @@ function CompanyForm({
             required
           />
           <Field
-            label="Zona horaria de la empresa"
+            label="Zona horaria operativa"
             value={timeZone}
             onChange={(e) => setTimeZone(e.target.value)}
             maxLength={100}

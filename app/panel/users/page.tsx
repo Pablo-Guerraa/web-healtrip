@@ -31,7 +31,7 @@ export default function Page() {
   return can("users:read") ? (
     <UsersPanel />
   ) : (
-    <Notice message="No tienes acceso a la gestión de usuarios." error />
+    <Notice message="No tienes acceso a la sección Equipo." error />
   );
 }
 function UserStatus({ user }: { user: UserSummary }) {
@@ -95,7 +95,7 @@ function UsersPanel() {
       })
     ) {
       setEditing(null);
-      setMessage("Usuario actualizado");
+      setMessage("Acceso actualizado");
       list.reload();
       if (editing.id === auth.user?.id) await auth.reload();
     }
@@ -148,14 +148,14 @@ function UsersPanel() {
       onClick={openInvite}
       disabled={roleOptions.loading || !assignable.length}
     >
-      Invitar usuario
+      Invitar al equipo
     </Button>
   ) : null;
   return (
     <div className="space-y-7">
       <ManagementHeader
-        title="Usuarios"
-        description="Consulta los usuarios y administra sus accesos."
+        title="Equipo"
+        description="Administra quién tiene acceso al panel de Healtrip."
         action={inviteButton}
       />
       <Notice message={message} />
@@ -168,7 +168,7 @@ function UsersPanel() {
         </div>
       ) : null}
       <ListToolbar
-        label="Buscar usuarios"
+        label="Buscar en el equipo"
         search={list.search}
         onSearch={list.setSearch}
         placeholder="Nombre o correo electrónico"
@@ -204,15 +204,15 @@ function UsersPanel() {
         total={list.data.total}
         onRetry={list.reload}
         onReset={list.reset}
-        emptyTitle="Todavía no hay usuarios"
-        emptyDescription="Invita a una persona para darle acceso a la aplicación."
+        emptyTitle="Todavía no hay cuentas en el equipo"
+        emptyDescription="Invita a una persona para darle acceso al panel de Healtrip."
         emptyAction={inviteButton}
       >
         <DataTable
           rows={list.data.items}
           columns={columns}
           rowKey={(user) => user.id}
-          label="Usuarios"
+          label="Equipo"
           sort={list.query.sort}
           direction={list.query.direction}
           onSort={list.setSort}
@@ -245,7 +245,7 @@ function UsersPanel() {
       >
         <DialogContent>
           <DialogTitle className="text-lg font-semibold">
-            Invitar usuario
+            Invitar al equipo
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             Recibirá un enlace válido por 7 días.

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import { useAuth } from "./auth-provider";
 import { api, json, errorMessage } from "@/lib/api";
+import { appName } from "@/lib/brand";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, Loading, Notice } from "@/components/shared/form";
@@ -148,9 +149,9 @@ export function AuthScreen({ mode }: { mode: AuthMode }) {
             aria-hidden="true"
             className="grid size-9 place-items-center rounded-lg bg-brand text-sm text-white"
           >
-            B
+            {appName[0]}
           </span>
-          {process.env.NEXT_PUBLIC_APP_NAME || "Business Core"}
+          {appName}
         </Link>
         <Card>
           <CardHeader>
@@ -159,6 +160,11 @@ export function AuthScreen({ mode }: { mode: AuthMode }) {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-5">
+            {mode === "login" ? (
+              <p className="text-sm text-muted-foreground">
+                Acceso para el equipo de coordinación de {appName}.
+              </p>
+            ) : null}
             <Notice message={error} error />
             <Notice message={message} />
             {mode === "register" && registrationOpen === null && !error ? (
@@ -173,7 +179,7 @@ export function AuthScreen({ mode }: { mode: AuthMode }) {
             ) : null}
             {mode === "register" && registrationOpen === true && !complete ? (
               <p className="text-sm text-muted-foreground">
-                Esta será la primera cuenta de la aplicación.
+                Esta cuenta administrará los accesos del equipo de {appName}.
               </p>
             ) : null}
             {mode === "invitation" && invitationReady && !complete ? (

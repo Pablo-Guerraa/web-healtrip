@@ -7,6 +7,7 @@ import { useAuth } from "@/components/auth/auth-provider";
 import { Button } from "@/components/ui/button";
 import { Loading, Notice } from "@/components/shared/form";
 import { errorMessage } from "@/lib/api";
+import { appName } from "@/lib/brand";
 import type { Permission } from "@/lib/types";
 const links: {
   href: string;
@@ -17,7 +18,7 @@ const links: {
   { href: "/panel", label: "Inicio", icon: Home },
   {
     href: "/panel/users",
-    label: "Usuarios",
+    label: "Equipo",
     icon: Users,
     permission: "users:read",
   },
@@ -45,7 +46,7 @@ export function PanelShell({ children }: { children: ReactNode }) {
   if (auth.status === "error")
     return (
       <main className="mx-auto max-w-lg space-y-5 p-8">
-        <Notice message="No se pudo cargar tu espacio de trabajo." error />
+        <Notice message={`No se pudo cargar el panel de ${appName}.`} error />
         <Button onClick={() => void auth.reload()}>Reintentar</Button>
       </main>
     );
@@ -59,7 +60,7 @@ export function PanelShell({ children }: { children: ReactNode }) {
       </a>
       <div className="flex items-center justify-between border-b bg-background p-4 lg:hidden">
         <Link href="/panel" className="font-semibold">
-          {process.env.NEXT_PUBLIC_APP_NAME || "Business Core"}
+          {appName}
         </Link>
         <Button
           variant="ghost"
@@ -82,9 +83,9 @@ export function PanelShell({ children }: { children: ReactNode }) {
             aria-hidden="true"
             className="grid size-9 place-items-center rounded-lg bg-brand text-sm text-white"
           >
-            B
+            {appName[0]}
           </span>
-          {process.env.NEXT_PUBLIC_APP_NAME || "Business Core"}
+          {appName}
         </Link>
         <nav aria-label="Principal" className="space-y-1">
           {links
