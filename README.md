@@ -1,8 +1,40 @@
 # Healtrip · Web
 
-Panel interno para el equipo de coordinación de turismo médico de Healtrip en Medellín. Usa Next.js 15, React y Tailwind. El inicio presenta los chequeos médicos, las citas con especialistas, las segundas opiniones y las consultas virtuales. [Sitio oficial](https://myhealtrip.co/)
+Sitio público y panel interno de Healtrip, empresa de turismo médico en Medellín. Usa Next.js 15, React y Tailwind. [Sitio oficial](https://myhealtrip.co/)
 
-## Uso
+## Base pública
+
+```bash
+npm ci
+npm run dev
+```
+
+| Ruta | Uso |
+| --- | --- |
+| `/` | Portada en español |
+| `/en` | Portada en inglés |
+| `/panel` | Panel del equipo |
+
+Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. El cuerpo de cada portada está disponible en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx` para incorporar las secciones. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
+
+Los textos globales y los canales de contacto se editan en `lib/site.ts`. Durante el rediseño, Servicios, Chequeos y Nosotros apuntan a sus destinos en WordPress. Al incorporar esas secciones, los enlaces se actualizan en `components/site/site-header.tsx`.
+
+Las portadas tienen metadatos de título, descripción, canonical, idiomas y Open Graph por idioma. Mientras el cuerpo esté vacío llevan `noindex` en `app/(public)/public-layout.tsx`. Los iconos y la marca se sirven desde `public/brand/`.
+
+### Identidad visual
+
+| Uso | Color del sitio de referencia |
+| --- | --- |
+| Fondo azul noche | `#050D1E` |
+| Superficie azul marino | `#081426` |
+| Azul de apoyo | `#254070` |
+| Dorado | `#D4A84B` |
+| Dorado claro | `#E5C670` |
+| Blanco | `#FFFFFF` |
+
+Las variables de color del sitio público están en `app/(public)/site.css`. El tema activo de WordPress usa Source Serif 4 y Source Sans 3. Ambas familias se sirven desde el proyecto con sus licencias SIL OFL en `app/(public)/_fonts/`. [Hoja de estilos del sitio original](https://myhealtrip.co/wp-content/themes/healtrip/assets/css/home.css)
+
+## Uso del panel
 
 1. Aplica las migraciones e inicia `api-healtrip` siguiendo su README.
 2. Ejecuta los siguientes comandos desde `web-healtrip`.
@@ -12,7 +44,7 @@ npm ci
 node --env-file=.env.example node_modules/next/dist/bin/next dev
 ```
 
-Abre `http://localhost:3000`. La primera cuenta es administradora; confirma su correo en Mailpit (`http://localhost:8025`) e inicia sesión. Entra directamente al panel. Si ya tenías una cuenta local de la versión anterior, ejecuta la migración de la API e inicia sesión nuevamente.
+Abre `http://localhost:3000/panel`. La primera cuenta es administradora. Confirma su correo en Mailpit (`http://localhost:8025`) e inicia sesión. Si ya tenías una cuenta local de la versión anterior, ejecuta la migración de la API e inicia sesión nuevamente.
 
 El login no muestra una acción de confirmación de correo. La primera cuenta conserva la verificación y puede solicitar otro enlace desde la pantalla de registro, tanto al completar el alta como al volver a abrirla. Las cuentas pendientes de versiones anteriores también pueden usar ese reenvío.
 
@@ -37,7 +69,7 @@ Los roles iniciales son Administrador y Usuario. Son editables: no tienen privil
 - `components/ui/`: botones, entradas, tarjetas, tablas, etiquetas y diálogos reutilizables.
 - `lib/api.ts`: cookies y renovación compartida entre solicitudes concurrentes.
 - `lib/access.ts`: permisos visuales denegados por defecto.
-- `app/panel/` contiene Inicio, Equipo, Roles y permisos, y Configuración.
+- `app/(internal)/panel/` contiene Inicio, Equipo, Roles y permisos, y Configuración.
 
 Los roles y permisos se consultan en `/auth/me`. El inicio obtiene el catálogo de `/settings` cuando la cuenta tiene `settings:read`. Los tokens de los enlaces se leen del fragmento de URL y se retiran de la barra. Si recargas esa pantalla antes de completar la operación, vuelve a abrir el enlace del correo.
 
