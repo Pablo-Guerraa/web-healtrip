@@ -1,8 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
 import { site, siteCopy, type SiteLocale } from "@/lib/site";
 import { heroCopy } from "./site-hero-copy";
 import { HeroJourney } from "./site-hero-journey";
 import { HeroMedia, HeroPatientCount } from "./site-hero-motion";
+import { SiteActionArrow } from "./site-links";
 
 export function SiteHero({ locale }: { locale: SiteLocale }) {
   const copy = heroCopy[locale];
@@ -22,12 +22,9 @@ export function SiteHero({ locale }: { locale: SiteLocale }) {
         <div className="site-hero-actions">
           <a className="site-gold-button site-hero-primary" href={`${wordpressHome}#planea`}>
             {copy.tripAction}
-            <span className="site-hero-arrow" aria-hidden="true">
-              <ArrowUpRight size={16} />
-              <ArrowUpRight size={16} />
-            </span>
+            <SiteActionArrow />
           </a>
-          <a className="site-hero-secondary" href={`${wordpressHome}#chequeos`}>
+          <a className="site-hero-secondary" href="#chequeos">
             {copy.checkupsAction}
           </a>
         </div>

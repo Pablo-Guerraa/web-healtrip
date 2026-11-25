@@ -1,9 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Phone } from "lucide-react";
-import { site, siteCopy, type SiteLocale } from "@/lib/site";
+import { ArrowUpRight, MessageCircle, Phone } from "lucide-react";
+import { site, siteCopy, whatsAppHref, type SiteLocale } from "@/lib/site";
 
 const logoMark = "/brand/logo-mark.webp";
+
+export function SiteActionArrow() {
+  return (
+    <span className="site-button-arrow" aria-hidden="true">
+      <ArrowUpRight size={16} />
+      <ArrowUpRight size={16} />
+    </span>
+  );
+}
 
 export function SiteLogo({ locale }: { locale: SiteLocale }) {
   const { home, path } = siteCopy[locale];
@@ -30,14 +39,13 @@ export function WhatsAppLink({
   floating?: boolean;
 }) {
   const { whatsAppAction, whatsAppPrompt, whatsAppMessage } = siteCopy[locale];
-  const message = encodeURIComponent(whatsAppMessage);
   const label = floating ? whatsAppPrompt : whatsAppAction;
   const variantClass = floating ? "site-floating-whatsapp" : "site-gold-button";
 
   return (
     <a
       className={className ? `${variantClass} ${className}` : variantClass}
-      href={`https://wa.me/${site.phoneNumber}?text=${message}`}
+      href={whatsAppHref(whatsAppMessage)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${label} · WhatsApp`}

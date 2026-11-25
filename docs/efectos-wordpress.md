@@ -39,14 +39,21 @@ El video y su imagen de respaldo se sirven desde `public/hero/`. El video conser
 
 Con movimiento reducido, las banderas se recorren horizontalmente y la comparación cambia con sus controles. Las cuatro fotos originales rotan cada `5 s` durante la visualización de la sección. Se sirven, junto con las banderas, en WebP desde `public/experience/`. [Código original de las banderas](https://myhealtrip.co/wp-content/themes/healtrip/assets/js/home.js?v=2.1.8) · [Foto 1](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-9_2.jpg) · [Foto 2](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-18_6.jpg) · [Foto 3](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-4_0.jpg) · [Foto 4](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-16_0.jpg)
 
+## Servicios y chequeos médicos
+
+| Sección | Movimiento incorporado | Disparador y tiempos |
+| --- | --- | --- |
+| Lo que agendamos | Cuatro servicios con foto o revisión de caso, barrido dorado y texto que asciende. En móvil se desplaza la lista de servicios. | Selección por puntero, toque o teclado. Avanza cada `7 s` en pantalla. El avance se detiene al pasar el cursor, navegar con teclado o activar la pausa. El barrido dura `1.1 s` y el texto entra tras `350 ms`. |
+| Chequeos médicos | El perfil cambia la silueta, las zonas y los precios. El plan modifica la cobertura y los contadores, y cada punto del cuerpo detalla sus exámenes. | La tarjeta se mueve `4 px` al pasar el cursor y `10 px` al seleccionarla en escritorio. Los puntos activos pulsan cada `2.2 s`, el escaneo dura `5.5 s` y los contadores se actualizan en `600 ms`. |
+| Detalle de exámenes | La ventana permite comparar los tres planes del perfil seleccionado y muestra los exámenes incluidos y su plan de entrada. | Apertura desde el centro en `800 ms` y desde abajo en móvil. Al cambiar de plan, las tarjetas aparecen con incrementos de `25 ms`. Escape cierra el detalle y devuelve el foco al botón. |
+
+Los dos perfiles, los tres planes y sus exámenes proceden del catálogo de WordPress del 25 de noviembre de 2026. La portada en español comienza en COP y la inglesa en USD. Las tres fotos y la ilustración de segunda opinión están en `public/care/`. [Catálogo en español](https://myhealtrip.co/#chequeos) · [Catálogo en inglés](https://myhealtrip.co/en/#chequeos) · [Foto de chequeos](https://myhealtrip.co/wp-content/themes/healtrip/assets/serv-chequeo.jpg) · [Foto de especialistas](https://myhealtrip.co/wp-content/themes/healtrip/assets/serv-agenda.jpg) · [Foto de consultas virtuales](https://myhealtrip.co/wp-content/themes/healtrip/assets/serv-virtual.jpg)
+
 ## Referencia para construir las secciones
 
 | Sección | Movimiento observado | Disparador y tiempos |
 | --- | --- | --- |
 | Entradas al hacer scroll | Los elementos aparecen al subir `18 px` y recuperar opacidad. | `IntersectionObserver` al `12 %` de visibilidad. Transición de `800 ms` con incrementos de `80 ms` entre hermanos, hasta `320 ms`. Cada elemento se revela una sola vez. |
-| Servicios | Imagen que se descubre de derecha a izquierda con borde luminoso, acercamiento suave, texto ascendente y luz que sigue al puntero. | El servicio cambia con hover, clic o después de unos `7 s`. El barrido dura `1.1 s`. El texto entra tras `350 ms`. El avance automático se pausa con el puntero sobre la sección. |
-| Chequeos | Paneles laterales se desplazan, la silueta cambia por perfil y los puntos activos pulsan. Las zonas del cuerpo tienen resaltado contextual. | La tarjeta del plan se mueve `4 px` en hover y `10 px` al seleccionarla. Los puntos activos pulsan cada `2.2 s`. El escaneo de la silueta dura `5.5 s`. Sus avisos abren con puntero, foco o toque. |
-| Detalle del chequeo | La ventana se abre desde el centro y los resultados aparecen por filas. | Apertura por recorte en `800 ms`. En el cambio de plan, las filas tienen incrementos de `25 ms`. El control de cierre gira `90°` en hover. |
 | Fundadora | El retrato se revela con recorte y reduce su zoom al acercar el puntero. El fondo texturizado recibe una luz móvil y un destello. | Recorte de `1.4 s` al aparecer, cambio de escala de `1.08` a `1.02` en `1.6 s` y barrido del fondo cada `11 s`. |
 | Especialistas | Tarjetas que se elevan y muestran información adicional mientras se aclara el video. | En escritorio se elevan `8 px` y reproducen al pasar el puntero. En móvil se deslizan horizontalmente y el toque abre el detalle. |
 | Testimonios | Carrusel con profundidad 3D y visor con barras de progreso. | Las tarjetas laterales giran `22°` y se reducen a `0.72`. El video avanza al siguiente al terminar. El visor controla el progreso con el tiempo real del video. |

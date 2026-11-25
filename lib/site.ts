@@ -7,6 +7,10 @@ export const site = {
   phoneNumber: "573003587924",
 };
 
+export function whatsAppHref(message: string) {
+  return `https://wa.me/${site.phoneNumber}?text=${encodeURIComponent(message)}`;
+}
+
 export const siteCopy = {
   es: {
     path: "/",

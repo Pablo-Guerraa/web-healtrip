@@ -77,10 +77,10 @@ export function SiteHeader({ locale }: { locale: SiteLocale }) {
             >
               {copy.home}
             </Link>
-            <a href={`${site.origin}${copy.wordpressServices}`} onClick={closeMenu}>
+            <a href="#servicios" onClick={closeMenu}>
               {copy.services}
             </a>
-            <a href={`${wordpressHome}#chequeos`} onClick={closeMenu}>
+            <a href="#chequeos" onClick={closeMenu}>
               {copy.checkups}
             </a>
             <a href={`${wordpressHome}#nosotros`} onClick={closeMenu}>

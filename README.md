@@ -15,9 +15,9 @@ npm run dev
 | `/en` | Portada en inglés |
 | `/panel` | Panel del equipo |
 
-Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. Después del titular con video, cifras y cuatro pasos de «Así es tu viaje», aparecen el carrusel «Pacientes de 10 países» y la comparación interactiva «Por qué Healtrip». Las secciones se componen en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx`. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
+Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. Tras el titular y «Así es tu viaje» aparecen el carrusel de países, «Por qué Healtrip», «Lo que agendamos» y «Chequeos médicos». Las portadas se componen en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx`. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
 
-Los textos globales y los canales de contacto se editan en `lib/site.ts`. Durante el rediseño, Servicios, Chequeos y Nosotros apuntan a sus destinos en WordPress. Al incorporar esas secciones, los enlaces se actualizan en `components/site/site-header.tsx`.
+Los textos globales y los canales de contacto se editan en `lib/site.ts`. Los precios en COP y USD, las descripciones de planes y los exámenes de ambas portadas se editan en `components/site/checkup-catalog.ts`. Servicios y Chequeos llevan a las secciones de la portada. Nosotros, acompañamiento y el formulario para elegir fechas siguen enlazados a WordPress durante el rediseño.
 
 Las portadas tienen metadatos de título, descripción, canonical, idiomas y Open Graph por idioma. Durante el rediseño llevan `noindex` en `app/(public)/public-layout.tsx`. Los iconos y la marca se sirven desde `public/brand/`.
 

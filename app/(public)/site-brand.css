@@ -112,6 +112,35 @@
   transform: scale(0.98);
 }
 
+.site-button-arrow {
+  position: relative;
+  display: grid;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  overflow: hidden;
+}
+
+.site-button-arrow svg {
+  transition: transform 450ms var(--site-ease);
+}
+
+.site-button-arrow svg + svg {
+  position: absolute;
+  transform: translate(-160%, 160%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-gold-button:is(:hover, :focus-visible) .site-button-arrow svg:first-child {
+    transform: translate(160%, -160%);
+  }
+
+  .site-gold-button:is(:hover, :focus-visible) .site-button-arrow svg + svg {
+    transform: none;
+  }
+}
+
 .site-whatsapp-tablet {
   display: none;
 }

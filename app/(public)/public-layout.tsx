@@ -10,6 +10,9 @@ import "./site.css";
 import "./site-brand.css";
 import "./site-hero.css";
 import "./site-experience.css";
+import "./site-services.css";
+import "./site-checkups.css";
+import "./site-checkup-details.css";
 
 const sans = localFont({
   src: "./_fonts/source-sans-3.woff2",
