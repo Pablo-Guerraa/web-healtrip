@@ -7,6 +7,7 @@ import { WhatsAppLink } from "@/components/site/site-links";
 import { site, siteCopy, type SiteLocale } from "@/lib/site";
 import "../globals.css";
 import "./site.css";
+import "./site-brand.css";
 
 const sans = localFont({
   src: "./_fonts/source-sans-3.woff2",
@@ -78,7 +79,7 @@ export function PublicLayout({
           {children}
         </main>
         <SiteFooter locale={locale} />
-        <WhatsAppLink locale={locale} className="site-whatsapp-mobile" />
+        <WhatsAppLink locale={locale} floating />
       </body>
     </html>
   );

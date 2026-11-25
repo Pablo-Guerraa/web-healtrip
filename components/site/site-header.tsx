@@ -1,9 +1,8 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site, siteCopy, type SiteLocale } from "@/lib/site";
 import { SiteLogo, WhatsAppLink } from "./site-links";
 
@@ -11,22 +10,51 @@ export function SiteHeader({ locale }: { locale: SiteLocale }) {
   const copy = siteCopy[locale];
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const header = useRef<HTMLElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
   const closeMenu = () => setMenuOpen(false);
 
-  function handleKeyDown(event: KeyboardEvent<HTMLElement>) {
-    if (event.key === "Escape" && menuOpen) {
-      closeMenu();
+  useEffect(() => {
+    const compact = window.matchMedia("(max-width: 1080px)");
+    const resetMenu = () => setMenuOpen(false);
+    const updateTone = () => {
+      header.current?.toggleAttribute(
+        "data-scrolled",
+        window.scrollY > window.innerHeight * 0.6,
+      );
+    };
+
+    updateTone();
+    window.addEventListener("scroll", updateTone, { passive: true });
+    window.addEventListener("resize", updateTone);
+    compact.addEventListener("change", resetMenu);
+    return () => {
+      window.removeEventListener("scroll", updateTone);
+      window.removeEventListener("resize", updateTone);
+      compact.removeEventListener("change", resetMenu);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
       menuButton.current?.focus();
     }
-  }
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
 
   const wordpressHome = `${site.origin}${copy.wordpressHome}`;
 
   return (
-    <header className="site-header" onKeyDown={handleKeyDown}>
+    <header ref={header} className="site-header" data-menu-open={menuOpen}>
       <div className="site-container site-header-row">
         <SiteLogo locale={locale} />
+        <WhatsAppLink locale={locale} className="site-whatsapp-tablet" />
         <button
           type="button"
           ref={menuButton}
@@ -36,9 +64,11 @@ export function SiteHeader({ locale }: { locale: SiteLocale }) {
           aria-controls="site-menu"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </button>
-        <div className="site-header-menu" id="site-menu" data-open={menuOpen}>
+        <div className="site-header-menu" id="site-menu">
           <nav className="site-nav" aria-label={copy.navLabel}>
             <Link
               href={copy.path}
@@ -75,7 +105,7 @@ export function SiteHeader({ locale }: { locale: SiteLocale }) {
               </Link>
             ))}
           </nav>
-          <WhatsAppLink locale={locale} className="site-whatsapp-desktop" />
+          <WhatsAppLink locale={locale} />
         </div>
       </div>
     </header>

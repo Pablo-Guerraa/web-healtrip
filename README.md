@@ -34,6 +34,8 @@ Las portadas tienen metadatos de título, descripción, canonical, idiomas y Ope
 
 Las variables de color del sitio público están en `app/(public)/site.css`. El tema activo de WordPress usa Source Serif 4 y Source Sans 3. Ambas familias se sirven desde el proyecto con sus licencias SIL OFL en `app/(public)/_fonts/`. [Hoja de estilos del sitio original](https://myhealtrip.co/wp-content/themes/healtrip/assets/css/home.css)
 
+Los tiempos, disparadores y estados de los efectos de WordPress están documentados para esta base y para las próximas secciones. [Auditoría de movimiento e interacciones](docs/efectos-wordpress.md)
+
 ## Uso del panel
 
 1. Aplica las migraciones e inicia `api-healtrip` siguiendo su README.
