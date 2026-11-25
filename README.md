@@ -15,11 +15,11 @@ npm run dev
 | `/en` | Portada en inglés |
 | `/panel` | Panel del equipo |
 
-Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. El cuerpo de cada portada está disponible en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx` para incorporar las secciones. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
+Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. Su primera sección incluye video de fondo, titular, cifras y los cuatro pasos de «Así es tu viaje». Las siguientes secciones se agregan en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx`. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
 
 Los textos globales y los canales de contacto se editan en `lib/site.ts`. Durante el rediseño, Servicios, Chequeos y Nosotros apuntan a sus destinos en WordPress. Al incorporar esas secciones, los enlaces se actualizan en `components/site/site-header.tsx`.
 
-Las portadas tienen metadatos de título, descripción, canonical, idiomas y Open Graph por idioma. Mientras el cuerpo esté vacío llevan `noindex` en `app/(public)/public-layout.tsx`. Los iconos y la marca se sirven desde `public/brand/`.
+Las portadas tienen metadatos de título, descripción, canonical, idiomas y Open Graph por idioma. Durante el rediseño llevan `noindex` en `app/(public)/public-layout.tsx`. Los iconos y la marca se sirven desde `public/brand/`.
 
 ### Identidad visual
 

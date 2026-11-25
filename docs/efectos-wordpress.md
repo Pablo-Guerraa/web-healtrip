@@ -18,11 +18,22 @@ Auditoría del 25 de noviembre de 2026 sobre la portada en español y los recurs
 
 `app/(public)/site.css` contiene el encabezado, los enlaces y el menú. `app/(public)/site-brand.css` contiene los efectos del logo y de contacto. La curva principal de las transiciones es `cubic-bezier(0.23, 1, 0.32, 1)`. La preferencia de movimiento reducido detiene los ciclos y conserva el foco visible. Escape cierra el menú y devuelve el foco al botón.
 
+## Primera sección de la portada
+
+| Elemento | Referencia aplicada |
+| --- | --- |
+| Composición | El video pasa detrás del encabezado translúcido. El titular centrado usa Source Serif 4, de `44.8 px` a `89.6 px`, con la primera línea en itálica dorada. La introducción, las llamadas a la acción y las cifras se ordenan debajo. |
+| Fondo | El video de origen tiene `19 s` y se reproduce en bucle. El acercamiento va de `1` a `1.09` durante `26 s`, con sentido alterno. Las capas azul noche dan contraste en el centro, arriba y al pie. |
+| Controles | La acción principal usa el destello dorado y una flecha que sale en diagonal. La secundaria dibuja una línea dorada. Ambas conducen temporalmente a sus secciones en WordPress. |
+| Cifras | Tres columnas con fondo traslúcido y desenfoque de `8 px`. El primer valor crece de `0` a `500` en `1.8 s`, tras `500 ms`. Su valor accesible es estable. |
+| Recorrido | Los cuatro medallones se conectan con una línea horizontal en escritorio y vertical hasta `860 px`. Se resalta un paso cada `2.6 s` mientras el bloque esté visible. Se puede seleccionar un paso con puntero, toque o teclado. |
+
+El video y su imagen de respaldo se sirven desde `public/hero/`. El video conserva la secuencia original y está optimizado a `1120 × 630` en H.264, con inicio rápido. El póster está en WebP y cubre la carga, los errores de reproducción y la preferencia de movimiento reducido. [Video original](https://myhealtrip.co/wp-content/themes/healtrip/assets/hero-journey.mp4) · [Póster original](https://myhealtrip.co/wp-content/themes/healtrip/assets/hero-journey-poster.jpg)
+
 ## Referencia para construir las secciones
 
 | Sección | Movimiento observado | Disparador y tiempos |
 | --- | --- | --- |
-| Portada y pasos del viaje | Zoom lento del video de fondo, contador animado y recorrido de cuatro pasos con aros y trazos dorados. | El video escala de `1` a `1.09` cada `26 s` y alterna el sentido. El contador arranca tras `500 ms` y dura `1.8 s`. Los pasos avanzan cada `2.6 s`, se seleccionan al pasar el cursor o tocar y se detienen mientras el puntero está encima del paso. |
 | Entradas al hacer scroll | Los elementos aparecen al subir `18 px` y recuperar opacidad. | `IntersectionObserver` al `12 %` de visibilidad. Transición de `800 ms` con incrementos de `80 ms` entre hermanos, hasta `320 ms`. Cada elemento se revela una sola vez. |
 | Países | Carrusel continuo con aumento, color e iluminación en el centro. | Comienza `1.2 s` después de alcanzar un `60 %` de visibilidad. Se desplaza a `48 px/s` y baja gradualmente a `8 px/s` con el puntero encima. |
 | Escena de coordinación | Los nodos cambian de posición y se conectan al símbolo central. Las fotos y las líneas acompañan el cambio. | Escena activada al tocarla o `900 ms` después de alcanzar un `45 %` de visibilidad. Las fotos rotan cada `5 s`, las líneas usan pulsos de `2.2 s` y los nodos tienen retrasos de `70 ms`. |

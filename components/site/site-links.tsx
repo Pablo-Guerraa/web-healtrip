@@ -32,7 +32,7 @@ export function WhatsAppLink({
   const { whatsAppAction, whatsAppPrompt, whatsAppMessage } = siteCopy[locale];
   const message = encodeURIComponent(whatsAppMessage);
   const label = floating ? whatsAppPrompt : whatsAppAction;
-  const variantClass = floating ? "site-floating-whatsapp" : "site-whatsapp-button";
+  const variantClass = floating ? "site-floating-whatsapp" : "site-gold-button";
 
   return (
     <a

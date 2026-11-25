@@ -68,7 +68,7 @@
   }
 }
 
-.site-whatsapp-button {
+.site-gold-button {
   position: relative;
   isolation: isolate;
   display: inline-flex;
@@ -86,7 +86,7 @@
   transition: transform 350ms var(--site-ease);
 }
 
-.site-whatsapp-button::before {
+.site-gold-button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -100,15 +100,15 @@
   transition: background-position 900ms var(--site-ease);
 }
 
-.site-whatsapp-button:is(:hover, :focus-visible) {
+.site-gold-button:is(:hover, :focus-visible) {
   transform: translateY(-2px);
 }
 
-.site-whatsapp-button:is(:hover, :focus-visible)::before {
+.site-gold-button:is(:hover, :focus-visible)::before {
   background-position: 0 0;
 }
 
-.site-whatsapp-button:active {
+.site-gold-button:active {
   transform: scale(0.98);
 }
 
@@ -232,7 +232,7 @@
   }
 
   .site-logo:is(:hover, :focus-visible) .site-logo-mark,
-  .site-whatsapp-button:is(:hover, :focus-visible, :active),
+  .site-gold-button:is(:hover, :focus-visible, :active),
   .site-floating-whatsapp:is(:hover, :focus-visible) .site-floating-emblem {
     transform: none;
   }

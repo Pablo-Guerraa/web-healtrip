@@ -8,6 +8,7 @@ import { site, siteCopy, type SiteLocale } from "@/lib/site";
 import "../globals.css";
 import "./site.css";
 import "./site-brand.css";
+import "./site-hero.css";
 
 const sans = localFont({
   src: "./_fonts/source-sans-3.woff2",
@@ -17,8 +18,10 @@ const sans = localFont({
 });
 
 const serif = localFont({
-  src: "./_fonts/source-serif-4.woff2",
-  weight: "400 600",
+  src: [
+    { path: "./_fonts/source-serif-4.woff2", weight: "400 600", style: "normal" },
+    { path: "./_fonts/source-serif-4-italic.woff2", weight: "400", style: "italic" },
+  ],
   display: "swap",
   variable: "--site-font-serif",
   adjustFontFallback: "Times New Roman",
@@ -56,7 +59,7 @@ export function siteMetadata(locale: SiteLocale): Metadata {
       icon: { url: "/brand/favicon-32.png", sizes: "32x32", type: "image/png" },
       apple: { url: "/brand/apple-touch-icon.png", sizes: "180x180" },
     },
-    // Keep the empty landing pages out of search results during the redesign.
+    // Keep redesign previews out of search results until launch.
     robots: { index: false, follow: true },
   };
 }
