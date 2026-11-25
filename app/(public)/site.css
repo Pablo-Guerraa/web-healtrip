@@ -42,6 +42,38 @@ html:has(.public-site) {
   margin-inline: auto;
 }
 
+.site-section-content {
+  --site-gutter: 24px;
+  --site-width: 1132px;
+}
+
+.site-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--site-gold-light);
+  font-family: var(--site-font-serif), Georgia, serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.site-eyebrow::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--site-gold);
+  animation: site-eyebrow-pulse 2.4s infinite;
+}
+
+@keyframes site-eyebrow-pulse {
+  from { box-shadow: 0 0 0 0 rgb(212 168 75 / 60%); }
+  to { box-shadow: 0 0 0 8px transparent; }
+}
+
 .site-skip-link {
   position: fixed;
   z-index: 40;

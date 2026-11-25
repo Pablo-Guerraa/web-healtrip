@@ -30,13 +30,20 @@ Auditoría del 25 de noviembre de 2026 sobre la portada en español y los recurs
 
 El video y su imagen de respaldo se sirven desde `public/hero/`. El video conserva la secuencia original y está optimizado a `1120 × 630` en H.264, con inicio rápido. El póster está en WebP y cubre la carga, los errores de reproducción y la preferencia de movimiento reducido. [Video original](https://myhealtrip.co/wp-content/themes/healtrip/assets/hero-journey.mp4) · [Póster original](https://myhealtrip.co/wp-content/themes/healtrip/assets/hero-journey-poster.jpg)
 
+## Países y comparación de Healtrip
+
+| Sección | Movimiento incorporado | Disparador y tiempos |
+| --- | --- | --- |
+| Pacientes de 10 países | La bandera central aumenta de tamaño e intensidad y muestra «→ Medellín». El botón inferior pausa y reanuda el carrusel. | Comienza `1.2 s` después de alcanzar un `60 %` de visibilidad. Avanza a `48 px/s` y baja gradualmente a `8 px/s` con el puntero encima. |
+| Por qué Healtrip | Nueve tarjetas se conectan con líneas doradas al logo. La comparación actualiza contactos, tiempo y resultados. En móvil, las tarjetas se distribuyen en dos columnas bajo el logo. | Cambia al usar el selector o pulsar el diagrama. Se activa automáticamente tras `900 ms` al alcanzar un `45 %` de visibilidad. Los nodos se escalonan `70 ms` y las líneas llevan pulsos de `2.2 s`. |
+
+Con movimiento reducido, las banderas se recorren horizontalmente y la comparación cambia con sus controles. Las cuatro fotos originales rotan cada `5 s` durante la visualización de la sección. Se sirven, junto con las banderas, en WebP desde `public/experience/`. [Código original de las banderas](https://myhealtrip.co/wp-content/themes/healtrip/assets/js/home.js?v=2.1.8) · [Foto 1](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-9_2.jpg) · [Foto 2](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-18_6.jpg) · [Foto 3](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-4_0.jpg) · [Foto 4](https://myhealtrip.co/wp-content/themes/healtrip/assets/mani-16_0.jpg)
+
 ## Referencia para construir las secciones
 
 | Sección | Movimiento observado | Disparador y tiempos |
 | --- | --- | --- |
 | Entradas al hacer scroll | Los elementos aparecen al subir `18 px` y recuperar opacidad. | `IntersectionObserver` al `12 %` de visibilidad. Transición de `800 ms` con incrementos de `80 ms` entre hermanos, hasta `320 ms`. Cada elemento se revela una sola vez. |
-| Países | Carrusel continuo con aumento, color e iluminación en el centro. | Comienza `1.2 s` después de alcanzar un `60 %` de visibilidad. Se desplaza a `48 px/s` y baja gradualmente a `8 px/s` con el puntero encima. |
-| Escena de coordinación | Los nodos cambian de posición y se conectan al símbolo central. Las fotos y las líneas acompañan el cambio. | Escena activada al tocarla o `900 ms` después de alcanzar un `45 %` de visibilidad. Las fotos rotan cada `5 s`, las líneas usan pulsos de `2.2 s` y los nodos tienen retrasos de `70 ms`. |
 | Servicios | Imagen que se descubre de derecha a izquierda con borde luminoso, acercamiento suave, texto ascendente y luz que sigue al puntero. | El servicio cambia con hover, clic o después de unos `7 s`. El barrido dura `1.1 s`. El texto entra tras `350 ms`. El avance automático se pausa con el puntero sobre la sección. |
 | Chequeos | Paneles laterales se desplazan, la silueta cambia por perfil y los puntos activos pulsan. Las zonas del cuerpo tienen resaltado contextual. | La tarjeta del plan se mueve `4 px` en hover y `10 px` al seleccionarla. Los puntos activos pulsan cada `2.2 s`. El escaneo de la silueta dura `5.5 s`. Sus avisos abren con puntero, foco o toque. |
 | Detalle del chequeo | La ventana se abre desde el centro y los resultados aparecen por filas. | Apertura por recorte en `800 ms`. En el cambio de plan, las filas tienen incrementos de `25 ms`. El control de cierre gira `90°` en hover. |

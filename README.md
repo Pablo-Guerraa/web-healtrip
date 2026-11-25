@@ -15,7 +15,7 @@ npm run dev
 | `/en` | Portada en inglés |
 | `/panel` | Panel del equipo |
 
-Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. Su primera sección incluye video de fondo, titular, cifras y los cuatro pasos de «Así es tu viaje». Las siguientes secciones se agregan en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx`. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
+Las portadas comparten encabezado, menú móvil, selector ES/EN, contacto por WhatsApp y pie de página. Después del titular con video, cifras y cuatro pasos de «Así es tu viaje», aparecen el carrusel «Pacientes de 10 países» y la comparación interactiva «Por qué Healtrip». Las secciones se componen en `app/(public)/(es)/page.tsx` y `app/(public)/en/page.tsx`. Puedes usar `.site-container` para alinear el contenido con el encabezado y el pie.
 
 Los textos globales y los canales de contacto se editan en `lib/site.ts`. Durante el rediseño, Servicios, Chequeos y Nosotros apuntan a sus destinos en WordPress. Al incorporar esas secciones, los enlaces se actualizan en `components/site/site-header.tsx`.
 

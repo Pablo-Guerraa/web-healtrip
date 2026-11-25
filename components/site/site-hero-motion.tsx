@@ -1,27 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useSiteMotion } from "./use-site-motion";
 
 const patientTotal = 500;
 const poster = "/hero/hero-trip-poster.webp";
 
-export function useHeroMotion() {
-  const [allowed, setAllowed] = useState(false);
-
-  useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: no-preference)");
-    const sync = () => setAllowed(preference.matches);
-    sync();
-    preference.addEventListener("change", sync);
-    return () => preference.removeEventListener("change", sync);
-  }, []);
-
-  return allowed;
-}
-
 export function HeroMedia() {
-  const motion = useHeroMotion();
+  const motion = useSiteMotion();
 
   return (
     <div className="site-hero-media" aria-hidden="true">
@@ -43,7 +30,7 @@ export function HeroMedia() {
 }
 
 export function HeroPatientCount() {
-  const motion = useHeroMotion();
+  const motion = useSiteMotion();
   const count = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {

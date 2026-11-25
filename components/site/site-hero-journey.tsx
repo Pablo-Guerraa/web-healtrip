@@ -3,7 +3,7 @@
 import { HeartPulse, House, Plane, Stethoscope } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { HeroJourneyCopy } from "./site-hero-copy";
-import { useHeroMotion } from "./site-hero-motion";
+import { useSiteMotion } from "./use-site-motion";
 
 const icons = [
   { Icon: Plane, name: "plane" },
@@ -14,7 +14,7 @@ const icons = [
 
 export function HeroJourney({ copy }: { copy: HeroJourneyCopy }) {
   const section = useRef<HTMLElement>(null);
-  const motion = useHeroMotion();
+  const motion = useSiteMotion();
   const [active, setActive] = useState(0);
   const [inView, setInView] = useState(false);
   const [revealed, setRevealed] = useState(false);
@@ -58,7 +58,7 @@ export function HeroJourney({ copy }: { copy: HeroJourneyCopy }) {
       }}
     >
       <div className="site-journey-heading">
-        <h2 id="viaje-titulo">{copy.label}</h2>
+        <h2 id="viaje-titulo" className="site-eyebrow">{copy.label}</h2>
         <p>{copy.title}</p>
       </div>
       <div className="site-journey-track">
